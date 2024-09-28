@@ -7,3 +7,4 @@ public class PointManager : MonoBehaviour
     //Player Score Board
     public static int currentPoints;
 }
+    
