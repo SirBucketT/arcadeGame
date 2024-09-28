@@ -10,7 +10,7 @@ public class Example : MonoBehaviour
     void Start()
     {
         //Text sets your text to say this message
-        text.text = "Stork Game" + = "Here are your instructions";
+        text.text = "Stork Game" + "Here are your instructions";
     }
 
     // void Update()
