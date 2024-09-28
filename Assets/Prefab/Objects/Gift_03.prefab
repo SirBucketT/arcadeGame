@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 387083618632088366}
   - component: {fileID: 635610322268218289}
   - component: {fileID: 1074553025702655984}
+  - component: {fileID: 599499129078196109}
   m_Layer: 0
   m_Name: Gift_03
   m_TagString: PostOffice
@@ -133,3 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &599499129078196109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632951494818907794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d18a4551d940e547af45ed9a88b4757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giftID: {r: 0, g: 0, b: 0, a: 0}

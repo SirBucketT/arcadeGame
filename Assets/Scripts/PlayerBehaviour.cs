@@ -9,21 +9,20 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator animator;
     public GameObject holdingGift;
     public GameObject legJoint;
-    public float walkspeed = 5;
+
+    public Camera mainCamera;
+    public GameObject originalTransform;
+    public GameObject aimTransform;
+
     private float horizontal;
     private float vertical;
     private float rotationDegreePerSecond = 500;
     private bool isAttacking = false;
 
-    public GameObject[] characters;
-    public int currentChar = 0;
-
-    public UnityEngine.UI.Text nameText;
-
-
     void Start()
     {
-        setCharacter(0);
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     void FixedUpdate()
@@ -33,10 +32,10 @@ public class PlayerBehaviour : MonoBehaviour
             // Get input
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
-            
+
             // Movement direction based on vertical input (forward/backward movement relative to the player's facing direction)
             Vector3 movementDirection = transform.forward * vertical;
-            
+
             // Normalize movement direction if needed (to prevent diagonal speed boost, though this is vertical only now)
             if (movementDirection.sqrMagnitude > 1) movementDirection.Normalize();
 
@@ -47,15 +46,24 @@ public class PlayerBehaviour : MonoBehaviour
                 // Rotate the player left/right based on horizontal input
                 transform.Rotate(Vector3.up, horizontal * rotationDegreePerSecond * Time.deltaTime * 0.2f);
             }
-            
+
             // Update Rigidbody velocity for forward/backward movement (based on vertical input)
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.velocity = movementDirection;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKey(KeyCode.Space) && holdingGift != null)
+        {
+            mainCamera.transform.position = aimTransform.transform.position;
+            mainCamera.transform.rotation = aimTransform.transform.rotation;
+        }
+        else
         {
             DropPresent(holdingGift);
+            mainCamera.transform.position = originalTransform.transform.position;
+            mainCamera.transform.rotation = originalTransform.transform.rotation;
         }
+        
     }
 
     //On pickup
@@ -72,42 +80,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void DropPresent(GameObject gift)
     {
         gift.transform.position = this.transform.position;
+        holdingGift.transform.SetParent(null);
         gift.AddComponent<Rigidbody>();
-    }
-
-    GameObject target = null;
-    
-    public void setCharacter(int i)
-    {
-        currentChar += i;
-
-        if (currentChar > characters.Length - 1)
-            currentChar = 0;
-        if (currentChar < 0)
-            currentChar = characters.Length - 1;
-
-        foreach (GameObject child in characters)
-        {
-            if (child == characters[currentChar])
-            {
-                child.SetActive(true);
-                if (nameText != null)
-                    nameText.text = child.name;
-            }
-            else
-            {
-                child.SetActive(false);
-            }
-        }
-        animator = GetComponentInChildren<Animator>();
-    }
-
-    public bool ContainsParam(Animator _Anim, string _ParamName)
-    {
-        foreach (AnimatorControllerParameter param in _Anim.parameters)
-        {
-            if (param.name == _ParamName) return true;
-        }
-        return false;
     }
 }

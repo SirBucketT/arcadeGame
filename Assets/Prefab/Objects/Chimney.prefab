@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a7a1fbff48cbe4a8ebb75a0807a7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokeVFX: {fileID: 6443164331634654678}
   houseID: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1889540738082933524
 BoxCollider:
@@ -296,5 +297,10 @@ PrefabInstance:
 --- !u!4 &4472347507228748750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8175419398622507049, guid: 3a940a4328868c74ead23d640bd54f7c, type: 3}
+  m_PrefabInstance: {fileID: 5720720501257690087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6443164331634654678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1589387140638090801, guid: 3a940a4328868c74ead23d640bd54f7c, type: 3}
   m_PrefabInstance: {fileID: 5720720501257690087}
   m_PrefabAsset: {fileID: 0}
