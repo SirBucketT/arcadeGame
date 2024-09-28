@@ -1,19 +1,18 @@
+using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 public class PlayerBehaviour : MonoBehaviour
 {
 
     private Animator animator;
-
+    [FormerlySerializedAs("currentGift")] public GameObject holdingGift;
     public float walkspeed = 5;
     private float horizontal;
     private float vertical;
     private float rotationDegreePerSecond = 500;
     private bool isAttacking = false;
-
-    private bool dead;
-
 
     public GameObject[] characters;
     public int currentChar = 0;
@@ -51,13 +50,30 @@ public class PlayerBehaviour : MonoBehaviour
             // Update Rigidbody velocity for forward/backward movement (based on vertical input)
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.velocity = movementDirection;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DropPresent(holdingGift);
+        }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "PostOffice")
+        {
+            holdingGift = other.gameObject;
         }
     }
 
     public void DropPresent(GameObject gift)
     {
-        GameObject instance = Instantiate(gift, Vector3.zero, Quaternion.identity);
+        gift.transform.position = this.transform.position;
+        gift.AddComponent<Rigidbody>();
+    }
+
+    public void PickUpPresent(GameObject gift)
+    {
+        holdingGift = gift;
     }
 
     GameObject target = null;

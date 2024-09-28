@@ -441,17 +441,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stork
       objectReference: {fileID: 0}
+    - target: {fileID: 5283301659314781694, guid: 6d9119ff917abeb488f9abffc60039ef, type: 3}
+      propertyPath: currentGift
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8102309469448436132, guid: 6d9119ff917abeb488f9abffc60039ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6702118
+      value: 20.18
       objectReference: {fileID: 0}
     - target: {fileID: 8102309469448436132, guid: 6d9119ff917abeb488f9abffc60039ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 17.28
       objectReference: {fileID: 0}
     - target: {fileID: 8102309469448436132, guid: 6d9119ff917abeb488f9abffc60039ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.5512896
+      value: 6.36
       objectReference: {fileID: 0}
     - target: {fileID: 8102309469448436132, guid: 6d9119ff917abeb488f9abffc60039ef, type: 3}
       propertyPath: m_LocalRotation.w
