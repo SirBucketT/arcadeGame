@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Example : MonoBehaviour
+/*public class Example : MonoBehaviour
 {
     public Text text;
 
@@ -22,4 +22,4 @@ public class Example : MonoBehaviour
     //     }
     // }
 
-}
+}*/

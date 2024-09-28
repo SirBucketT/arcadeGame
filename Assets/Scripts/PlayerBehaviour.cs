@@ -4,79 +4,76 @@ using System.Collections;
 public class PlayerBehaviour : MonoBehaviour
 {
 
-	private Animator animator;
+    private Animator animator;
 
-	public float walkspeed = 5;
-	private float horizontal;
-	private float vertical;
-	private float rotationDegreePerSecond = 1000;
-	private bool isAttacking = false;
+    public float walkspeed = 5;
+    private float horizontal;
+    private float vertical;
+    private float rotationDegreePerSecond = 1000;
+    private bool isAttacking = false;
 
-	public GameObject gamecam;
-	public Vector2 camPosition;
-	private bool dead;
+    private bool dead;
 
 
-	public GameObject[] characters;
-	public int currentChar = 0;
-
-    public GameObject[] targets;
-    public float minAttackDistance;
+    public GameObject[] characters;
+    public int currentChar = 0;
 
     public UnityEngine.UI.Text nameText;
 
 
-	void Start()
-	{
-		setCharacter(0);
-	}
+    void Start()
+    {
+        setCharacter(0);
+    }
 
-	void FixedUpdate()
-	{
-		if (animator)
-		{
-			//walk
-			horizontal = Input.GetAxis("Horizontal");
-			vertical = Input.GetAxis("Vertical");
+    void FixedUpdate()
+    {
+        if (animator)
+        {
+            // Get input
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+            
+            // Movement direction based on vertical input (forward/backward movement relative to the player's facing direction)
+            Vector3 movementDirection = transform.forward * vertical;
+            
+            // Normalize movement direction if needed (to prevent diagonal speed boost, though this is vertical only now)
+            if (movementDirection.sqrMagnitude > 1) movementDirection.Normalize();
 
-			Vector3 stickDirection = new Vector3(horizontal, 0, vertical);
-			float speedOut;
+            movementDirection *= 10.0f;
+            // Apply rotation based on horizontal input (turning left/right)
+            if (horizontal != 0 && !isAttacking)
+            {
+                // Rotate the player left/right based on horizontal input
+                transform.Rotate(Vector3.up, horizontal * rotationDegreePerSecond * Time.deltaTime * 0.2f);
+            }
 
-			if (stickDirection.sqrMagnitude > 1) stickDirection.Normalize();
 
-			if (!isAttacking)
-				speedOut = stickDirection.sqrMagnitude;
-			else
-				speedOut = 0;
+            // Update Rigidbody velocity for forward/backward movement (based on vertical input)
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.velocity = movementDirection;
 
-			if (stickDirection != Vector3.zero && !isAttacking)
-				transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(stickDirection, Vector3.up), rotationDegreePerSecond * Time.deltaTime);
-			GetComponent<Rigidbody>().velocity = transform.forward * speedOut * walkspeed + new Vector3(0, GetComponent<Rigidbody>().velocity.y, 0);
+        }
+    }
 
-			animator.SetFloat("Speed", speedOut);
-		}
-	}
+    public void DropPresent(GameObject gift)
+    {
+        Instantiate(gift, this.transform);
+    }
 
-	void LateUpdate()
-	{ 
-		// move camera
-		if (gamecam) 
-			gamecam.transform.position = transform.position + new Vector3(0, camPosition.x, -camPosition.y);
-		
-	}
     GameObject target = null;
     
     public void setCharacter(int i)
-	{
-		currentChar += i;
+    {
+        currentChar += i;
 
-		if (currentChar > characters.Length - 1)
-			currentChar = 0;
-		if (currentChar < 0)
-			currentChar = characters.Length - 1;
+        if (currentChar > characters.Length - 1)
+            currentChar = 0;
+        if (currentChar < 0)
+            currentChar = characters.Length - 1;
 
-		foreach (GameObject child in characters)
-		{
+        foreach (GameObject child in characters)
+        {
             if (child == characters[currentChar])
             {
                 child.SetActive(true);
@@ -87,8 +84,8 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 child.SetActive(false);
             }
-		}
-		animator = GetComponentInChildren<Animator>();
+        }
+        animator = GetComponentInChildren<Animator>();
     }
 
     public bool ContainsParam(Animator _Anim, string _ParamName)
