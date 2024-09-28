@@ -7,8 +7,14 @@ public class MenuScripts : MonoBehaviour
 {
     public string GameWorld;
     public string loadCredits;
+
+    public string MainMenu;
     public string exitGame;
 
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(MainMenu);
+    }
     
     //start game scene
     public void startGameButton()
