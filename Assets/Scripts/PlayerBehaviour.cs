@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float walkspeed = 5;
     private float horizontal;
     private float vertical;
-    private float rotationDegreePerSecond = 1000;
+    private float rotationDegreePerSecond = 500;
     private bool isAttacking = false;
 
     private bool dead;
@@ -47,8 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
                 // Rotate the player left/right based on horizontal input
                 transform.Rotate(Vector3.up, horizontal * rotationDegreePerSecond * Time.deltaTime * 0.2f);
             }
-
-
+            
             // Update Rigidbody velocity for forward/backward movement (based on vertical input)
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.velocity = movementDirection;
@@ -58,7 +57,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void DropPresent(GameObject gift)
     {
-        Instantiate(gift, this.transform);
+        GameObject instance = Instantiate(gift, Vector3.zero, Quaternion.identity);
     }
 
     GameObject target = null;
