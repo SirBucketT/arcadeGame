@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (animator && !dead)
+		if (animator)
 		{
 			//walk
 			horizontal = Input.GetAxis("Horizontal");
@@ -57,128 +57,15 @@ public class PlayerBehaviour : MonoBehaviour
 		}
 	}
 
-	void Update()
-	{
-		if (!dead)
-		{
-			// move camera
-			if (gamecam)
-				gamecam.transform.position = transform.position + new Vector3(0, camPosition.x, -camPosition.y);
-
-			// attack
-			if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump") && !isAttacking)
-			{
-				isAttacking = true;
-				animator.SetTrigger("Attack");
-				StartCoroutine(stopAttack(1));
-                tryDamageTarget();
-
-
-            }
-            // get Hit
-            if (Input.GetKeyDown(KeyCode.N) && !isAttacking)
-            {
-                isAttacking = true;
-                animator.SetTrigger("Hit");
-                StartCoroutine(stopAttack(1));
-            }
-
-            animator.SetBool("isAttacking", isAttacking);
-
-			//switch character
-
-			if (Input.GetKeyDown("left"))
-			{
-				setCharacter(-1);
-				isAttacking = true;
-				StartCoroutine(stopAttack(1f));
-			}
-
-			if (Input.GetKeyDown("right"))
-			{
-				setCharacter(1);
-				isAttacking = true;
-				StartCoroutine(stopAttack(1f));
-			}
-
-			// death
-			if (Input.GetKeyDown("m"))
-				StartCoroutine(selfdestruct());
-
-            //Leave
-            if (Input.GetKeyDown("l"))
-            {
-                if (this.ContainsParam(animator,"Leave"))
-                {
-                    animator.SetTrigger("Leave");
-                    StartCoroutine(stopAttack(1f));
-                }
-            }
-        }
-
+	void LateUpdate()
+	{ 
+		// move camera
+		if (gamecam) 
+			gamecam.transform.position = transform.position + new Vector3(0, camPosition.x, -camPosition.y);
+		
 	}
     GameObject target = null;
-    public void tryDamageTarget()
-    {
-        target = null;
-        float targetDistance = minAttackDistance + 1;
-        foreach (var item in targets)
-        {
-            float itemDistance = (item.transform.position - transform.position).magnitude;
-            if (itemDistance < minAttackDistance)
-            {
-                if (target == null) {
-                    target = item;
-                    targetDistance = itemDistance;
-                }
-                else if (itemDistance < targetDistance)
-                {
-                    target = item;
-                    targetDistance = itemDistance;
-                }
-            }
-        }
-        if(target != null)
-        {
-            transform.LookAt(target.transform);
-            
-        }
-    }
-    public void DealDamage(DealDamageComponent comp)
-    {
-        if (target != null)
-        {
-            target.GetComponent<Animator>().SetTrigger("Hit");
-            var hitFX = Instantiate<GameObject>(comp.hitFX);
-            hitFX.transform.position = target.transform.position + new Vector3(0, target.GetComponentInChildren<SkinnedMeshRenderer>().bounds.center.y,0);
-        }
-    }
-
-    public IEnumerator stopAttack(float length)
-	{
-		yield return new WaitForSeconds(length); 
-		isAttacking = false;
-	}
-
-    public IEnumerator selfdestruct()
-    {
-        animator.SetTrigger("isDead");
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        dead = true;
-
-        yield return new WaitForSeconds(3f);
-        while (true)
-        {
-            if (Input.anyKeyDown)
-            {
-                Application.LoadLevel(Application.loadedLevelName);
-                yield break;
-            }
-            else
-                yield return 0;
-
-        }
-    }
+    
     public void setCharacter(int i)
 	{
 		currentChar += i;
