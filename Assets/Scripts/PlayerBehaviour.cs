@@ -12,16 +12,11 @@ public class PlayerBehaviour : MonoBehaviour
 	private float rotationDegreePerSecond = 1000;
 	private bool isAttacking = false;
 
-	public GameObject gamecam;
-	public Vector2 camPosition;
 	private bool dead;
 
 
 	public GameObject[] characters;
 	public int currentChar = 0;
-
-    public GameObject[] targets;
-    public float minAttackDistance;
 
     public UnityEngine.UI.Text nameText;
 
@@ -57,13 +52,11 @@ public class PlayerBehaviour : MonoBehaviour
 		}
 	}
 
-	void LateUpdate()
-	{ 
-		// move camera
-		if (gamecam) 
-			gamecam.transform.position = transform.position + new Vector3(0, camPosition.x, -camPosition.y);
-		
+	public void DropPresent(GameObject gift)
+	{
+		Instantiate(gift, this.transform);
 	}
+
     GameObject target = null;
     
     public void setCharacter(int i)
