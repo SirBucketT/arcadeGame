@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Example : MonoBehaviour
 {
-    public UIText m_MyText;
+    public Text m_MyText;
 
     void Start()
     {
