@@ -7,7 +7,8 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     private Animator animator;
-    [FormerlySerializedAs("currentGift")] public GameObject holdingGift;
+    public GameObject holdingGift;
+    public GameObject legJoint;
     public float walkspeed = 5;
     private float horizontal;
     private float vertical;
@@ -57,11 +58,14 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    //On pickup
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "PostOffice")
         {
             holdingGift = other.gameObject;
+            holdingGift.transform.position = legJoint.transform.position;
+            holdingGift.transform.SetParent(legJoint.transform);
         }
     }
 
@@ -69,11 +73,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         gift.transform.position = this.transform.position;
         gift.AddComponent<Rigidbody>();
-    }
-
-    public void PickUpPresent(GameObject gift)
-    {
-        holdingGift = gift;
     }
 
     GameObject target = null;
