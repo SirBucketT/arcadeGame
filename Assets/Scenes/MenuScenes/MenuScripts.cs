@@ -32,7 +32,7 @@ public class MenuScripts : MonoBehaviour
     
     
     //Close game button.
-    public void exitGameButton()
+    public void QuitGameButton()
     {
         Application.Quit();
     }
