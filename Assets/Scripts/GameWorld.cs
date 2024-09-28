@@ -1,28 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
+using System.Linq;
 
 public class GameWorld : MonoBehaviour
 {
-    public GameObject prefab1;
-    public GameObject prefab2;
-    GameObject selectedPrefab;
 
     private Color[] colors;    // Array to store 30 distinct colors
-    public string materialName = "M_City"; // Name of the material to change (optional)
 
     void Start()
     {
         // Randomly select between prefab1 and prefab2 with 50% chance
-        if (Random.Range(0, 2) == 0)
-        {
-            selectedPrefab = prefab1; // Choose prefab1
-        }
-        else
-        {
-            selectedPrefab = prefab2; // Choose prefab2
-        }
+        //if (Random.Range(0, 2) == 0)
 
         // Define 30 distinct colors
         colors = new Color[]
@@ -39,10 +30,34 @@ public class GameWorld : MonoBehaviour
         };
 
         // Instantiate the prefab
-        GameObject instance = Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
+        //GameObject instance = Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
 
-        // Apply random color to all child entities
-        ApplyRandomAlbedoColorToChildren(instance);
+          // Get all active GameObjects in the scene
+        GameObject[] allGameObjects = GameObject.FindObjectsOfType<GameObject>();
+
+
+        // Create a list to hold filtered objects
+        List<GameObject> filteredObjects = new List<GameObject>();
+
+
+                // Loop through all objects and check if their name starts with "suburban-house-"
+        foreach (GameObject obj in allGameObjects)
+        {
+            if (obj.name.StartsWith("suburban-house-"))
+            {
+                filteredObjects.Add(obj);
+                //Debug.Log("Found GameObject: " + obj.name);
+            }
+        }
+
+
+        // Example: Print the names of the found objects
+        foreach (GameObject obj in filteredObjects) {
+                    // Apply random color to all child entities
+            ApplyRandomAlbedoColorToChildren(obj);
+        }
+
+
     }
 
     void ApplyRandomAlbedoColorToChildren(GameObject parent)
@@ -58,8 +73,9 @@ public class GameWorld : MonoBehaviour
             // Iterate through all materials on the object
             foreach (Material mat in renderer.materials)
             {
+                Debug.Log(mat.name);
                 // Optional: if you want to target a specific material by name (e.g., "M_City")
-                if (string.IsNullOrEmpty(materialName) || mat.name.Contains(materialName))
+                if (mat.name.Contains("main-color-palette_mat"))
                 {
 
                     // Change the Albedo (diffuse color) of the material
