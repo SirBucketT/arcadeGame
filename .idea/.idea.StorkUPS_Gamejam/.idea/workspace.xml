@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed59ad64-79e2-4d38-8fd7-8e9dc601da74" name="Changes" comment="" />
+    <list default="true" id="ed59ad64-79e2-4d38-8fd7-8e9dc601da74" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.StorkUPS_Gamejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.StorkUPS_Gamejam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AssetPacks/EgyptMonsters/Prefabs/Eagles/Eagle_Normal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AssetPacks/EgyptMonsters/Prefabs/Eagles/Eagle_Normal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Player/Stork.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Player/Stork.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerBehaviour.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,13 +19,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Projects/StorkUPS_Gamejam/Assets/Christmas-Assets-FREE/Example-Scene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/StorkUPS_Gamejam/Assets/Christmas-Assets-FREE/Example-Scene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/StorkUPS_Gamejam/Assets/Christmas-Assets-FREE/Prefabs/Santa-Hat.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/StorkUPS_Gamejam/Assets/Christmas-Assets-FREE/Prefabs/Santa-Hat.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/StorkUPS_Gamejam/Assets/Prefab/Player/Stork.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Projects/StorkUPS_Gamejam/Assets/Prefab/Player/Stork.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Text.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -98,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727511176125</updated>
       <workItem from="1727511178191" duration="1041000" />
-      <workItem from="1727513534417" duration="1430000" />
+      <workItem from="1727513534417" duration="5410000" />
     </task>
     <servers />
   </component>
