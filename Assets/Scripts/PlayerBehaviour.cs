@@ -9,15 +9,17 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator animator;
     public GameObject holdingGift;
     public GameObject legJoint;
+    public GameObject aimLine;
 
     public Camera mainCamera;
     public GameObject originalTransform;
     public GameObject aimTransform;
+    private Coroutine cameraTransition;
 
+    private bool readyToDrop;
     private float horizontal;
     private float vertical;
     private float rotationDegreePerSecond = 500;
-    private bool isAttacking = false;
 
     void Start()
     {
@@ -25,7 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (animator)
         {
@@ -41,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             movementDirection *= 10.0f;
             // Apply rotation based on horizontal input (turning left/right)
-            if (horizontal != 0 && !isAttacking)
+            if (horizontal != 0)
             {
                 // Rotate the player left/right based on horizontal input
                 transform.Rotate(Vector3.up, horizontal * rotationDegreePerSecond * Time.deltaTime * 0.2f);
@@ -52,18 +54,23 @@ public class PlayerBehaviour : MonoBehaviour
             rb.velocity = movementDirection;
         }
 
-        if (Input.GetKey(KeyCode.Space) && holdingGift != null)
+        if (Input.GetKeyDown(KeyCode.Space) && holdingGift != null)
         {
+
             mainCamera.transform.position = aimTransform.transform.position;
             mainCamera.transform.rotation = aimTransform.transform.rotation;
+            readyToDrop = true;
+            aimLine.SetActive(true);
         }
-        else
+        
+        if (Input.GetKeyUp(KeyCode.Space) && readyToDrop)
         {
             DropPresent(holdingGift);
             mainCamera.transform.position = originalTransform.transform.position;
             mainCamera.transform.rotation = originalTransform.transform.rotation;
+            aimLine.SetActive(false);
+            readyToDrop = false;
         }
-        
     }
 
     //On pickup
