@@ -29,6 +29,7 @@ public class MenuScripts : MonoBehaviour
         SceneManager.LoadScene(loadCredits);
     }
 
+
     
     
     //Close game button.
