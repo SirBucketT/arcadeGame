@@ -16,12 +16,13 @@ public class PlayerBehaviour : MonoBehaviour
     public GameObject aimTransform;
     private Coroutine cameraTransition;
 
+    public GameObject instantGift;
+
     private bool readyToDrop;
     private float horizontal;
     private float vertical;
     private float rotationDegreePerSecond = 500;
 
-    private bool colored_the_gift = false;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -30,49 +31,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
-if (!colored_the_gift)
-{
-    GameObject gift = GameObject.Find("Gift_01");
-
-    if (gift != null)
-    {
-        Color giftColor = HouseColoring.colors[Random.Range(0, HouseColoring.colors.Length)];
-        GiftInfoHolder giftInfoHolder = gift.GetComponent<GiftInfoHolder>();
-        
-        // Update gift ID
-        giftInfoHolder.giftID = giftColor;
-        Debug.Log("Found Gift_01");
-
-        // Get the Renderer component
-        Renderer renderer = gift.GetComponent<Renderer>();
-        
-        if (renderer != null)
-        {
-            // Access the material of the Renderer
-            Material mat = renderer.material; // Use .sharedMaterial if you want to change it for all instances
-            
-            if (mat != null)
-            {
-                mat.color = giftColor; // Change the color of the material
-                Debug.Log($"Changed Albedo color of Gift_01 to {giftColor}");
-                colored_the_gift = true;
-            }
-            else
-            {
-                Debug.LogWarning("Material not found on the renderer.");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Renderer not found on Gift_01.");
-        }
-    }
-    else
-    {
-        Debug.LogWarning("Gift_01 not found in the scene.");
-    }
-}
-
         if (animator)
         {
             // Get input
@@ -121,7 +79,8 @@ if (!colored_the_gift)
     {
         if (other.tag == "PostOffice")
         {
-            holdingGift = other.gameObject;
+            Instantiate(instantGift);
+            holdingGift = instantGift;
             holdingGift.transform.position = legJoint.transform.position;
             holdingGift.transform.SetParent(legJoint.transform);
         }

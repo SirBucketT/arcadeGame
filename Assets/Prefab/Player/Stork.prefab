@@ -1232,6 +1232,7 @@ MonoBehaviour:
   mainCamera: {fileID: 6336823576569378366}
   originalTransform: {fileID: 6630534297744332535}
   aimTransform: {fileID: 4537898100956627370}
+  instantGift: {fileID: 5245446514257879776, guid: 26e6b06dfc833874eb81ffcdaf8715b3, type: 3}
 --- !u!65 &6023346631625530895
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1251,7 +1252,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.29, y: 0.1, z: 0.3}
+  m_Size: {x: 0.29, y: 1.26, z: 0.3}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &5438351937940830723
 GameObject:
