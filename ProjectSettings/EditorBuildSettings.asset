@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScenes/EndScene&Credit.unity
     guid: 56852171941b21045850bf87c660b25c
+  - enabled: 1
+    path: Assets/Scenes/TestSceneStork.unity
+    guid: ed73d956d4decfd4e9cdb40e594dfdf1
   m_configObjects: {}
