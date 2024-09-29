@@ -9,12 +9,17 @@ public class GiftValidator : MonoBehaviour
 {
     private bool danger;
     public GameObject smokeVFX;
+
+    public GameObject GiftSuccess;
+    public GameObject GiftBurned;
+    public GameObject GiftWrong;
+    
     
     public Color houseID; //<----- Identifier for house
 
     private void Start()
     {
-        InvokeRepeating("UpdateDangerStatus", 3, 6);
+        InvokeRepeating("UpdateDangerStatus", 3, Random.Range(0, 10));
     }
 
     private void UpdateDangerStatus()
@@ -37,16 +42,19 @@ public class GiftValidator : MonoBehaviour
     {
         if (deliveredGift.GetComponent<GiftInfoHolder>().giftID == houseID && !danger)
         {
+            GiftSuccess.SetActive(true);
             Debug.Log("Gift Delivered!");
             PointManager.currentPoints += 10;
         }
         else if (danger)
         {
+            GiftBurned.SetActive(true);
             Debug.Log("Gift got burned!");
             PointManager.currentPoints -= 5;
         }
         else
         {
+            GiftWrong.SetActive(true);
             Debug.Log("Wrong House!");
         }
     }
