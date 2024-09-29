@@ -43,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
             // Normalize movement direction if needed (to prevent diagonal speed boost, though this is vertical only now)
             if (movementDirection.sqrMagnitude > 1) movementDirection.Normalize();
 
-            movementDirection *= 10.0f;
+            movementDirection *= 15.0f;
             // Apply rotation based on horizontal input (turning left/right)
             if (horizontal != 0)
             {
