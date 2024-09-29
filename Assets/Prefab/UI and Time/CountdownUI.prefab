@@ -1233,3 +1233,5 @@ MonoBehaviour:
   timeRemaining: 180
   frontTimer: {fileID: 6587922699990548459}
   backTimer: {fileID: 6551638970335239211}
+  frontScore: {fileID: 59621292543659459}
+  backScore: {fileID: 6065258276125562980}
