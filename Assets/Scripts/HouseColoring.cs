@@ -5,19 +5,10 @@ using UnityEditor;
 
 using System.Linq;
 
-public class GameWorld : MonoBehaviour
+public class HouseColoring : MonoBehaviour
 {
 
-    private Color[] colors;    // Array to store 30 distinct colors
-
-    void Start()
-    {
-        // Randomly select between prefab1 and prefab2 with 50% chance
-        //if (Random.Range(0, 2) == 0)
-
-        // Define 30 distinct colors
-        colors = new Color[]
-        {
+    public static Color[] colors = {
             Color.red, Color.green, Color.blue, Color.yellow, Color.cyan, Color.magenta,
             new Color(1f, 0.5f, 0f), new Color(0.5f, 0f, 1f), new Color(0f, 0.5f, 1f),
             new Color(1f, 0.2f, 0.6f), new Color(0.2f, 0.8f, 0.2f), new Color(0.8f, 0.8f, 0.2f),
@@ -27,7 +18,12 @@ public class GameWorld : MonoBehaviour
             new Color(0.9f, 0.3f, 0.2f), new Color(0.3f, 0.9f, 0.7f), new Color(0.9f, 0.7f, 0.3f),
             new Color(0.7f, 0.9f, 0.2f), new Color(0.2f, 0.9f, 0.5f), new Color(0.5f, 0.2f, 0.9f),
             new Color(0.4f, 0.2f, 0.7f), new Color(0.7f, 0.4f, 0.2f), new Color(0.2f, 0.4f, 0.7f)
-        };
+        };    // Array to store 30 distinct colors
+
+    void Start()
+    {
+        // Randomly select between prefab1 and prefab2 with 50% chance
+        //if (Random.Range(0, 2) == 0)
 
         // Instantiate the prefab
         //GameObject instance = Instantiate(selectedPrefab, Vector3.zero, Quaternion.identity);
@@ -57,16 +53,25 @@ public class GameWorld : MonoBehaviour
             ApplyRandomAlbedoColorToChildren(obj);
         }
 
-
     }
 
     void ApplyRandomAlbedoColorToChildren(GameObject parent)
     {
-        // Get all child objects (and parent itself) that have a Renderer component
-        Renderer[] renderers = parent.GetComponentsInChildren<Renderer>();
-
         // Choose a random color from the array of distinct colors
         Color randomColor = colors[Random.Range(0, colors.Length)];
+    
+        GameObject chimney = parent.transform.Find("Chimney").gameObject;
+
+        if (chimney != null)
+        {
+            Debug.Log("found chimney, setting to color "+randomColor.r+" "+randomColor.g+" "+randomColor.b);
+            GiftValidator giftValidator = chimney.GetComponent<GiftValidator>();
+            giftValidator.houseID = randomColor;
+
+        }
+
+        // Get all child objects (and parent itself) that have a Renderer component
+        Renderer[] renderers = parent.GetComponentsInChildren<Renderer>();
 
         foreach (Renderer renderer in renderers)
         {
