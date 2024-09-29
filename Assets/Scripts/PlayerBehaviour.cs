@@ -77,11 +77,9 @@ public class PlayerBehaviour : MonoBehaviour
     //On pickup
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PostOffice")
+        if (other.tag == "PostOffice" && !holdingGift)
         {
-            Instantiate(instantGift);
-            holdingGift = instantGift;
-            holdingGift.transform.position = legJoint.transform.position;
+            holdingGift = Instantiate(instantGift,legJoint.transform.position,Quaternion.identity);
             holdingGift.transform.SetParent(legJoint.transform);
         }
     }
