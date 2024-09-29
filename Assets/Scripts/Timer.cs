@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     public float timeRemaining = 180f; //Amount of seconds until game over.
     public TMP_Text frontTimer;
     public TMP_Text backTimer;
+    public TMP_Text frontScore;
+    public TMP_Text backScore;
    
         void Update()
         {
@@ -24,5 +26,9 @@ public class Timer : MonoBehaviour
             
             frontTimer.text = timeRemaining.ToString() + ("S");
             backTimer.text = timeRemaining.ToString() + ("S");
+            
+            
+            frontScore.text = PointManager.currentPoints.ToString();
+            backScore.text = PointManager.currentPoints.ToString();
         }
 }
