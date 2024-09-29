@@ -32,7 +32,11 @@ public class MenuScripts : MonoBehaviour
     //Close game button.
     public void QuitGameButton()
     {
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         Debug.Log("Quit button pressed");
+#endif
+
+        Application.Quit();
     }
 }
