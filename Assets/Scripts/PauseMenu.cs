@@ -47,11 +47,11 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(MainMenu);
     }
     
-    
+    /*
     //Close game button.
     public void QuitGameButton()
     {
         Application.Quit();
         Debug.Log("Quit button pressed");
-    }
+    }*/
 }
