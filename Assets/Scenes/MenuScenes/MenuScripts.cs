@@ -28,14 +28,11 @@ public class MenuScripts : MonoBehaviour
     {
         SceneManager.LoadScene(loadCredits);
     }
-
-
-    
     
     //Close game button.
     public void QuitGameButton()
     {
-        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
         Debug.Log("Quit button pressed");
     }
 }
