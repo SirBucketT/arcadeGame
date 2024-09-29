@@ -56,7 +56,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && holdingGift != null)
         {
-
             mainCamera.transform.position = aimTransform.transform.position;
             mainCamera.transform.rotation = aimTransform.transform.rotation;
             readyToDrop = true;
@@ -88,6 +87,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         gift.transform.position = this.transform.position;
         holdingGift.transform.SetParent(null);
+        holdingGift = null;
         gift.AddComponent<Rigidbody>();
     }
 }
