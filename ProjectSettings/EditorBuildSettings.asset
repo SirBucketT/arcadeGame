@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScenes/MainMenu.unity
     guid: 8a42237bcf04be546a886a6ee369ed28
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameWorld.unity
     guid: 7eabfc295e9576045a0621d86a69aa52
   - enabled: 1
@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScenes/EndScene&Credit.unity
     guid: 56852171941b21045850bf87c660b25c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestSceneStork.unity
     guid: ed73d956d4decfd4e9cdb40e594dfdf1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TheoTest.unity
     guid: b2e1be87690c61a448b0a8678ed25818
   - enabled: 1
