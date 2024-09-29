@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6734966899769320118}
   - component: {fileID: 8832579214601574012}
   - component: {fileID: 863725953392773676}
+  - component: {fileID: 7862438768569700326}
   m_Layer: 0
   m_Name: suburban-house-A
   m_TagString: Untagged
@@ -101,6 +102,28 @@ MonoBehaviour:
   windowMaterialIndex: 1
   lightColor: {r: 0.41509432, g: 0.36251774, b: 0.14293341, a: 1}
   areLightsOn: 0
+--- !u!64 &7862438768569700326
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031072911745939369}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2235254406633527735, guid: d06dc4a0f6dcf4086aee95eabc15e2c4, type: 3}
 --- !u!1001 &2266715402686156772
 PrefabInstance:
   m_ObjectHideFlags: 0
