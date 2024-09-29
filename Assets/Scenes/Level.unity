@@ -33175,6 +33175,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2173582753156034503, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267362425264311737, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267362425264311737, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267362425264311737, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267362425264311737, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065258276125562980, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065258276125562980, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065258276125562980, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065258276125562980, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128593965543731412, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128593965543731412, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128593965543731412, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128593965543731412, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551638970335239211, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551638970335239211, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551638970335239211, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551638970335239211, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7412604684504714681, guid: 4096e967d9ca0e3478a0bc4cfc63c7b9, type: 3}
       propertyPath: m_Name
       value: CountdownUI
