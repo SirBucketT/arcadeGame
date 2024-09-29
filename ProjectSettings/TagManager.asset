@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PostProcessing
   - PostOffice
+  - Gift
   layers:
   - Default
   - TransparentFX

@@ -30,12 +30,12 @@ public class GiftValidator : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "PostOffice")
+        if (other.gameObject.tag == "Gift")
         {
             Validating(other.gameObject);
+            Destroy(other.gameObject);
         }
         Debug.Log("goal!");
-        Destroy(other.gameObject);
     }
 
     private void Validating(GameObject deliveredGift)
