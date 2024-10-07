@@ -9,7 +9,8 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject gameUI;
-    
+
+   
     public string loadCredits;
     public string MainMenu;
     
@@ -47,6 +48,18 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(MainMenu);
     }
     
+    //Close game button.
+    public void QuitGameButton()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        Debug.Log("Quit button pressed");
+#endif
+
+        Application.Quit();
+    }
+}
+    
     /*
     //Close game button.
     public void QuitGameButton()
@@ -54,4 +67,4 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit button pressed");
     }*/
-}
+

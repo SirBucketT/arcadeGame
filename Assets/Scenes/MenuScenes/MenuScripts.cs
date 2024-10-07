@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class MenuScripts : MonoBehaviour
 
     public string MainMenu;
     public string exitGame;
+
+    void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
 
     public void MainMenuButton()
     {
