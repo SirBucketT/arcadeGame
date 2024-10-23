@@ -7,7 +7,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
 
-    public float timeRemaining = 180f; //Amount of seconds until game over.
+    public static float timeRemaining = 180f; //Amount of seconds until game over.
     public TMP_Text frontTimer;
     public TMP_Text backTimer;
     public TMP_Text frontScore;
